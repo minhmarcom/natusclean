@@ -42,13 +42,12 @@ export default function App() {
       payload.append("quantity", formData.quantity);
       payload.append("note", formData.note);
 
-      await fetch(GOOGLE_APP_SCRIPT_URL, {
-        method: 'POST',
-        body: payload,
+      await fetch(`${GOOGLE_APP_SCRIPT_URL}?${payload.toString()}`, {
+        method: 'GET',
         mode: 'no-cors'
       });
 
-      alert(`Đăng ký thành công! Đội ngũ Natus Clean sẽ sớm liênпу hệ xử lý đơn hàng cho ${formData.name}.`);
+      alert(`Đăng ký thành công! Đội ngũ Natus Clean sẽ sớm liên hệ xử lý đơn hàng cho ${formData.name}.`);
       setFormData({ name: '', phone: '', address: '', quantity: '1', note: '' });
     } catch (error) {
       alert("Hệ thống bị gián đoạn, vui lòng liên hệ Zalo trực tiếp.");
