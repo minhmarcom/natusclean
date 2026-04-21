@@ -1,5 +1,5 @@
 import { CheckCircle, Phone, ShieldCheck, Sparkles, Star, Truck, Users, Headset } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -10,9 +10,51 @@ export default function App() {
     note: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Cảm ơn ${formData.name}! Đơn hàng của bạn đã được ghi nhận. Chúng tôi sẽ liên hệ trong thời gian sớm nhất.`);
+    setIsSubmitting(true);
+    
+    // ĐƯỜNG DẪN TỚI GOOGLE APPS SCRIPT WEB APP
+    const GOOGLE_APP_SCRIPT_URL = 'THAY_DUONG_LINK_Google_Script_CUA_BAN_VAO_DAY';
+
+    if (GOOGLE_APP_SCRIPT_URL === 'THAY_DUONG_LINK_Google_Script_CUA_BAN_VAO_DAY' || GOOGLE_APP_SCRIPT_URL === '') {
+       alert(`Cảm ơn ${formData.name}! Đơn hàng của bạn đã được ghi nhận. (Hãy thay thế URL Google Script để thấy kết quả trên file excel nhé)`);
+       setFormData({ name: '', phone: '', address: '', quantity: '1', note: '' });
+       setIsSubmitting(false);
+       return;
+    }
+
+    try {
+      const payload = new URLSearchParams();
+      payload.append("name", formData.name);
+      payload.append("phone", formData.phone);
+      payload.append("address", formData.address);
+      payload.append("quantity", formData.quantity);
+      payload.append("note", formData.note);
+
+      await fetch(GOOGLE_APP_SCRIPT_URL, {
+        method: 'POST',
+        body: payload,
+        mode: 'no-cors'
+      });
+
+      alert(`Đăng ký thành công! Đội ngũ Natus Clean sẽ sớm liênпу hệ xử lý đơn hàng cho ${formData.name}.`);
+      setFormData({ name: '', phone: '', address: '', quantity: '1', note: '' });
+    } catch (error) {
+      alert("Hệ thống bị gián đoạn, vui lòng liên hệ Zalo trực tiếp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -160,7 +202,7 @@ export default function App() {
       <section id="gallery" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold text-[#182871] sm:text-4xl uppercase tracking-tight">
+            <h2 className="text-[1.35rem] min-[375px]:text-2xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tighter whitespace-nowrap">
               Sự Lựa Chọn Của Gia Đình Việt
             </h2>
             <p className="mt-4 text-xl text-slate-600 font-medium max-w-3xl mx-auto">
@@ -173,14 +215,14 @@ export default function App() {
             <div className="w-full rounded-3xl overflow-hidden shadow-2xl bg-[#182871] group flex flex-col md:flex-row items-center border border-[#253994]">
               <div className="w-full md:w-1/2 flex items-center justify-center p-0 md:order-2">
                 <img 
-                   src="/anh bia.png" 
+                   src="/anh_bia.png" 
                    alt="Tẩy rửa nhà bếp siêu sạch" 
                    className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-gradient-to-r from-[#182871] to-[#253994] md:order-1 text-center md:text-left">
                  <div className="max-w-xl mx-auto md:mx-0">
-                   <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg whitespace-nowrap">Sạch Bóng Nhà Bếp</h3>
+                   <h3 className="text-xl min-[375px]:text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg whitespace-nowrap">Sạch Bóng Nhà Bếp</h3>
                    <p className="text-lg md:text-xl text-cyan-50 font-medium drop-shadow-md">Đánh bay mỡ cứng đầu, trả lại vẻ sáng bóng cho không gian nấu nướng của bạn.</p>
                  </div>
               </div>
@@ -197,7 +239,7 @@ export default function App() {
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-gradient-to-l from-[#182871] to-[#253994] text-center md:text-right">
                  <div className="max-w-xl mx-auto md:ml-auto md:mr-0">
-                   <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg whitespace-nowrap">Làm Mới Nội Thất</h3>
+                   <h3 className="text-xl min-[375px]:text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg whitespace-nowrap">Làm Mới Nội Thất</h3>
                    <p className="text-lg md:text-xl text-cyan-50 font-medium drop-shadow-md">Giải pháp làm sạch xe hơi đa năng, loại bỏ bụi bẩn, khử mùi hoàn hảo.</p>
                  </div>
               </div>
@@ -206,7 +248,7 @@ export default function App() {
             {/* Real Photos Grid */}
             <div id="thuc-te" className="w-full mt-24 scroll-mt-24">
                <div className="text-center mb-10">
-                 <h2 className="text-3xl font-extrabold text-[#182871] sm:text-4xl uppercase tracking-tight">
+                 <h2 className="text-[1.5rem] min-[375px]:text-3xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tighter whitespace-nowrap">
                    Sản phẩm thực tế
                  </h2>
                </div>
@@ -230,7 +272,7 @@ export default function App() {
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
                <div>
-                  <h3 className="text-2xl font-black text-[#182871] uppercase">Tìm Đối Tác Phân Phối Toàn Quốc</h3>
+                  <h3 className="text-[1.1rem] min-[400px]:text-[1.3rem] md:text-2xl font-black text-[#182871] uppercase tracking-tighter whitespace-nowrap">Tìm Đối Tác Phân Phối Toàn Quốc</h3>
                   <p className="text-[#182871] font-medium mt-1">Đại lý cấp 1, cấp 2, Đại lý độc quyền khu vực với chính sách cực tốt.</p>
                </div>
                <a 
@@ -250,7 +292,7 @@ export default function App() {
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-[#182871] sm:text-4xl uppercase tracking-tight">
+            <h2 className="text-[1.4rem] min-[375px]:text-2xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tighter whitespace-nowrap">
               Sức Mạnh Từ Công Nghệ 10X
             </h2>
             <p className="mt-4 max-w-2xl text-xl text-slate-500 mx-auto leading-relaxed">
@@ -426,8 +468,8 @@ export default function App() {
                     <label htmlFor="note" className="block text-sm font-bold text-slate-700 mb-1">Ghi chú thêm (Nếu có)</label>
                     <textarea name="note" id="note" rows={2} value={formData.note} onChange={handleChange} className="block w-full rounded-xl border-slate-200 shadow-sm focus:border-[#182871] focus:ring-[#182871] sm:text-sm bg-slate-50 p-3.5 outline-none transition-colors border" placeholder="Thời gian nhận hàng ưng ý..."></textarea>
                   </div>
-                  <button type="submit" className="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-base font-black tracking-wide text-white bg-[#182871] hover:bg-[#121f5e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#182871] transition-transform hover:scale-[1.02] mt-4 uppercase">
-                    Xác Nhận Đặt Hàng
+                  <button type="submit" disabled={isSubmitting} className="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-base font-black tracking-wide text-white bg-[#182871] hover:bg-[#121f5e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#182871] transition-transform hover:scale-[1.02] mt-4 uppercase disabled:opacity-75 disabled:cursor-wait">
+                    {isSubmitting ? "Đang Gửi Dữ Liệu..." : "Xác Nhận Đặt Hàng"}
                   </button>
                 </form>
               </div>
@@ -505,6 +547,36 @@ export default function App() {
           <span className="font-black text-sm sm:text-base uppercase tracking-wider">Báo giá tốt</span>
         </div>
       </a>
+      {/* 5-second Delay Popup */}
+      {showPopup && (
+         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowPopup(false); }}></div>
+            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden max-w-sm w-full animate-[wiggle_0.5s_ease-out]">
+               <button type="button" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowPopup(false); }} className="absolute top-3 right-3 text-white hover:text-slate-200 bg-black/20 hover:bg-black/40 rounded-full p-1.5 z-10 transition-colors">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+               </button>
+               <div className="bg-gradient-to-r from-[#182871] to-[#253994] p-6 text-center text-white relative overflow-hidden">
+                  <div className="absolute -top-6 -right-6 w-24 h-24 bg-cyan-400 rounded-full blur-[30px] opacity-50"></div>
+                  <h3 className="text-2xl font-black uppercase italic mb-1 drop-shadow-lg">Ưu Đãi Đặc Biệt!</h3>
+                  <p className="font-medium text-cyan-200 text-sm">Dành riêng cho bạn hôm nay</p>
+               </div>
+               <div className="p-8 text-center bg-slate-50">
+                  <div className="mb-2">
+                     <span className="text-5xl font-black text-[#182871] tracking-tighter">86K</span>
+                     <span className="text-slate-400 line-through ml-2 text-lg">150K</span>
+                  </div>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">Siêu Tẩy Đa Năng <span className="font-bold text-[#182871]">Natus Clean</span> đánh bay mọi mảng bám cứng đầu nhất chỉ trong 5 phút. Sạch bong sáng bóng!</p>
+                  <a 
+                     href="#order"
+                     onClick={() => setShowPopup(false)}
+                     className="block w-full py-3.5 px-4 bg-[#182871] hover:bg-[#121f5e] text-white font-black rounded-xl shadow-[0_4px_15px_rgba(24,40,113,0.4)] transition-all hover:scale-105 uppercase tracking-wide border border-[#182871]"
+                  >
+                     Nhận ưu đãi & Đặt hàng
+                  </a>
+               </div>
+            </div>
+         </div>
+      )}
     </div>
   );
 }
