@@ -25,7 +25,7 @@ export default function App() {
     setIsSubmitting(true);
     
     // ĐƯỜNG DẪN TỚI GOOGLE APPS SCRIPT WEB APP
-    const GOOGLE_APP_SCRIPT_URL = 'THAY_DUONG_LINK_Google_Script_CUA_BAN_VAO_DAY';
+    const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj85P_dPR0uvkxh8s1iHrdfVp0pkxBIe34fhdOTOEqF399zWsdKQhzGOPl7itwn5T8/exec';
 
     if (GOOGLE_APP_SCRIPT_URL === 'THAY_DUONG_LINK_Google_Script_CUA_BAN_VAO_DAY' || GOOGLE_APP_SCRIPT_URL === '') {
        alert(`Cảm ơn ${formData.name}! Đơn hàng của bạn đã được ghi nhận. (Hãy thay thế URL Google Script để thấy kết quả trên file excel nhé)`);
@@ -148,7 +148,7 @@ export default function App() {
                 </div>
               </div>
 
-              <p className="mt-6 text-base text-slate-300 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0 font-medium">
+              <p className="text-pretty mt-6 text-base text-slate-300 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0 font-medium">
                 Sạch nhanh vượt trội, đánh bay mọi vết bẩn cứng đầu trên bếp, nội thất, ghế ô tô với công nghệ Ultra Deep Power 10X.
               </p>
               
@@ -202,10 +202,10 @@ export default function App() {
       <section id="gallery" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-[1.35rem] min-[375px]:text-2xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tighter whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tight text-balance leading-snug">
               Sự Lựa Chọn Của Gia Đình Việt
             </h2>
-            <p className="mt-4 text-xl text-slate-600 font-medium max-w-3xl mx-auto">
+            <p className="text-pretty mt-4 text-xl text-slate-600 font-medium max-w-3xl mx-auto">
               Trải nghiệm hiệu quả làm sạch tức thì trên nhiều bề mặt khác nhau. Từ nhà bếp đến nội thất ô tô.
             </p>
           </div>
@@ -222,8 +222,8 @@ export default function App() {
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-gradient-to-r from-[#182871] to-[#253994] md:order-1 text-center md:text-left">
                  <div className="max-w-xl mx-auto md:mx-0">
-                   <h3 className="text-xl min-[375px]:text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg whitespace-nowrap">Sạch Bóng Nhà Bếp</h3>
-                   <p className="text-lg md:text-xl text-cyan-50 font-medium drop-shadow-md">Đánh bay mỡ cứng đầu, trả lại vẻ sáng bóng cho không gian nấu nướng của bạn.</p>
+                   <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg text-balance leading-tight">Sạch Bóng Nhà Bếp</h3>
+                   <p className="text-pretty text-lg md:text-xl text-cyan-50 font-medium drop-shadow-md">Đánh bay mỡ cứng đầu, trả lại vẻ sáng bóng cho không gian nấu nướng của bạn.</p>
                  </div>
               </div>
             </div>
@@ -239,8 +239,8 @@ export default function App() {
               </div>
               <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-gradient-to-l from-[#182871] to-[#253994] text-center md:text-right">
                  <div className="max-w-xl mx-auto md:ml-auto md:mr-0">
-                   <h3 className="text-xl min-[375px]:text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg whitespace-nowrap">Làm Mới Nội Thất</h3>
-                   <p className="text-lg md:text-xl text-cyan-50 font-medium drop-shadow-md">Giải pháp làm sạch xe hơi đa năng, loại bỏ bụi bẩn, khử mùi hoàn hảo.</p>
+                   <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4 drop-shadow-lg text-balance leading-tight">Làm Mới Nội Thất</h3>
+                   <p className="text-pretty text-lg md:text-xl text-cyan-50 font-medium drop-shadow-md">Giải pháp làm sạch xe hơi đa năng, loại bỏ bụi bẩn, khử mùi hoàn hảo.</p>
                  </div>
               </div>
             </div>
@@ -248,7 +248,7 @@ export default function App() {
             {/* Real Photos Grid */}
             <div id="thuc-te" className="w-full mt-24 scroll-mt-24">
                <div className="text-center mb-10">
-                 <h2 className="text-[1.5rem] min-[375px]:text-3xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tighter whitespace-nowrap">
+                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tight text-balance leading-snug">
                    Sản phẩm thực tế
                  </h2>
                </div>
@@ -272,8 +272,8 @@ export default function App() {
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
                <div>
-                  <h3 className="text-[1.1rem] min-[400px]:text-[1.3rem] md:text-2xl font-black text-[#182871] uppercase tracking-tighter whitespace-nowrap">Tìm Đối Tác Phân Phối Toàn Quốc</h3>
-                  <p className="text-[#182871] font-medium mt-1">Đại lý cấp 1, cấp 2, Đại lý độc quyền khu vực với chính sách cực tốt.</p>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#182871] uppercase tracking-tight text-balance leading-snug">Tìm Đối Tác Phân Phối Toàn Quốc</h3>
+                  <p className="text-pretty text-[#182871] font-medium mt-1">Đại lý cấp 1, cấp 2, Đại lý độc quyền khu vực với chính sách cực tốt.</p>
                </div>
                <a 
                   href="https://zalo.me/0584556556"
@@ -292,10 +292,10 @@ export default function App() {
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-[1.4rem] min-[375px]:text-2xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tighter whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182871] uppercase tracking-tight text-balance leading-snug">
               Sức Mạnh Từ Công Nghệ 10X
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-slate-500 mx-auto leading-relaxed">
+            <p className="text-pretty mt-4 max-w-2xl text-xl text-slate-500 mx-auto leading-relaxed">
               Chai xịt Natus Clean giải quyết toàn diện <span className="block mt-1 text-slate-600 font-medium">mọi vấn đề làm sạch xung quanh bạn.</span>
             </p>
           </div>
@@ -307,7 +307,7 @@ export default function App() {
                   <Sparkles className="h-10 w-10" />
                 </div>
                 <h3 className="text-xl font-bold text-[#182871] mb-3">Nhà Bếp Siêu Sạch</h3>
-                <p className="text-slate-600">Đánh bay mảng bám dầu mỡ lâu ngày trên bếp từ, máy hút mùi, xoong nồi chảo chỉ trong tích tắc.</p>
+                <p className="text-pretty text-slate-600">Đánh bay mảng bám dầu mỡ lâu ngày trên bếp từ, máy hút mùi, xoong nồi chảo chỉ trong tích tắc.</p>
               </div>
 
               <div className="flex flex-col items-center text-center p-8 bg-slate-50/80 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl transition-all hover:-translate-y-1 group">
@@ -315,7 +315,7 @@ export default function App() {
                   <ShieldCheck className="h-10 w-10" />
                 </div>
                 <h3 className="text-xl font-bold text-[#182871] mb-3">An Toàn Bề Mặt</h3>
-                <p className="text-slate-600">Hiệu quả và làm mới trên ghế da ô tô, sofa, phụ kiện đồ mộc, nội thất gia đình mà không làm hỏng chất liệu.</p>
+                <p className="text-pretty text-slate-600">Hiệu quả và làm mới trên ghế da ô tô, sofa, phụ kiện đồ mộc, nội thất gia đình mà không làm hỏng chất liệu.</p>
               </div>
 
               <div className="flex flex-col items-center text-center p-8 bg-slate-50/80 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-xl transition-all hover:-translate-y-1 group">
@@ -323,7 +323,7 @@ export default function App() {
                   <Star className="h-10 w-10" />
                 </div>
                 <h3 className="text-xl font-bold text-[#182871] mb-3">10X Ultra Deep Power</h3>
-                <p className="text-slate-600">Công thức thẩm thấu sâu, làm sạch cực mạnh gấp 10 lần các loại dung dịch tẩy rửa thông thường.</p>
+                <p className="text-pretty text-slate-600">Công thức thẩm thấu sâu, làm sạch cực mạnh gấp 10 lần các loại dung dịch tẩy rửa thông thường.</p>
               </div>
             </div>
           </div>
@@ -357,7 +357,7 @@ export default function App() {
                       </div>
                    </div>
                 </div>
-                <p className="text-slate-600 flex-grow italic">"Rất bất ngờ với hiệu quả. Mình xịt thử lên bếp gas bám đầy dầu mỡ để 5 phút lau lại sạch bong. Đáng đồng tiền!"</p>
+                <p className="text-pretty text-slate-600 flex-grow italic">"Rất bất ngờ với hiệu quả. Mình xịt thử lên bếp gas bám đầy dầu mỡ để 5 phút lau lại sạch bong. Đáng đồng tiền!"</p>
              </div>
              <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 flex flex-col">
                 <div className="flex items-center mb-4">
@@ -369,7 +369,7 @@ export default function App() {
                       </div>
                    </div>
                 </div>
-                <p className="text-slate-600 flex-grow italic">"Ghế da ô tô nhà mình bị vết ố bẩn lau mãi không ra, mua thử Natus clean về lau phát bay luôn. Dung dịch không mùi hắc, rất ưng."</p>
+                <p className="text-pretty text-slate-600 flex-grow italic">"Ghế da ô tô nhà mình bị vết ố bẩn lau mãi không ra, mua thử Natus clean về lau phát bay luôn. Dung dịch không mùi hắc, rất ưng."</p>
              </div>
              <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 flex flex-col">
                 <div className="flex items-center mb-4">
@@ -381,7 +381,7 @@ export default function App() {
                       </div>
                    </div>
                 </div>
-                <p className="text-slate-600 flex-grow italic">"Sản phẩm chuẩn 10X. Nhập thùng về bán lẻ khách khen tắm tắp. Shop gói hàng kĩ, giao nhanh. Ủng hộ shop dài."</p>
+                <p className="text-pretty text-slate-600 flex-grow italic">"Sản phẩm chuẩn 10X. Nhập thùng về bán lẻ khách khen tắm tắp. Shop gói hàng kĩ, giao nhanh. Ủng hộ shop dài."</p>
              </div>
           </div>
         </div>
@@ -397,7 +397,7 @@ export default function App() {
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#182871] to-slate-900 opacity-90 z-0"></div>
                 <div className="relative z-10">
                   <h3 className="text-3xl font-black mb-2 uppercase text-cyan-400">Đặt hàng ngay</h3>
-                  <p className="text-slate-300 mb-8 font-medium">
+                  <p className="text-pretty text-slate-300 mb-8 font-medium">
                     Nhập thông tin để mua lẻ hoặc đăng ký Đại lý. Chúng tôi sẽ gọi lại chốt đơn trong 5 phút!
                   </p>
                   <div className="space-y-6">
@@ -489,7 +489,7 @@ export default function App() {
                    Natus<span className="text-cyan-400">CLEAN</span>
                  </span>
               </div>
-              <p className="mt-4 text-sm text-slate-400 leading-relaxed pr-8">
+              <p className="text-pretty mt-4 text-sm text-slate-400 leading-relaxed pr-8">
                 Sản phẩm Siêu tẩy đa năng với công nghệ 10X Power Ultra Deep. Sạch bong sáng bóng mọi ngóc ngách, bảo vệ bề mặt hoàn hảo.
               </p>
             </div>
@@ -524,10 +524,10 @@ export default function App() {
             </div>
           </div>
           <div className="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between">
-            <p className="text-sm text-slate-500 font-medium">
+            <p className="text-pretty text-sm text-slate-500 font-medium">
               &copy; 2026 Natus Clean. All rights reserved.
             </p>
-            <p className="text-sm text-slate-500 font-medium mt-2 md:mt-0">
+            <p className="text-pretty text-sm text-slate-500 font-medium mt-2 md:mt-0">
               Công nghệ làm sạch Ultra Deep 10X
             </p>
           </div>
@@ -558,14 +558,14 @@ export default function App() {
                <div className="bg-gradient-to-r from-[#182871] to-[#253994] p-6 text-center text-white relative overflow-hidden">
                   <div className="absolute -top-6 -right-6 w-24 h-24 bg-cyan-400 rounded-full blur-[30px] opacity-50"></div>
                   <h3 className="text-2xl font-black uppercase italic mb-1 drop-shadow-lg">Ưu Đãi Đặc Biệt!</h3>
-                  <p className="font-medium text-cyan-200 text-sm">Dành riêng cho bạn hôm nay</p>
+                  <p className="text-pretty font-medium text-cyan-200 text-sm">Dành riêng cho bạn hôm nay</p>
                </div>
                <div className="p-8 text-center bg-slate-50">
                   <div className="mb-2">
                      <span className="text-5xl font-black text-[#182871] tracking-tighter">86K</span>
                      <span className="text-slate-400 line-through ml-2 text-lg">150K</span>
                   </div>
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">Siêu Tẩy Đa Năng <span className="font-bold text-[#182871]">Natus Clean</span> đánh bay mọi mảng bám cứng đầu nhất chỉ trong 5 phút. Sạch bong sáng bóng!</p>
+                  <p className="text-pretty text-slate-600 text-sm mb-6 leading-relaxed">Siêu Tẩy Đa Năng <span className="font-bold text-[#182871]">Natus Clean</span> đánh bay mọi mảng bám cứng đầu nhất chỉ trong 5 phút. Sạch bong sáng bóng!</p>
                   <a 
                      href="#order"
                      onClick={() => setShowPopup(false)}
