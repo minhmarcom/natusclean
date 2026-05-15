@@ -278,13 +278,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://www.tiktok.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
+    const existingScript = document.querySelector('script[src="https://www.tiktok.com/embed.js"]');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = 'https://www.tiktok.com/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   useEffect(() => {
@@ -602,26 +602,18 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              '7639629764872899847',
-              '7638881245300002055',
-              '7637687547455360263',
-              '7637323156809649416'
-            ].map((id) => (
-              <div key={id} className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 flex justify-center">
-                <blockquote 
-                  className="tiktok-embed" 
-                  cite={`https://www.tiktok.com/@natusclean/video/${id}`} 
-                  data-video-id={id} 
-                  style={{ maxWidth: '605px', minWidth: '325px' }}
-                >
-                  <section>
-                    <a target="_blank" title="@natusclean" href={`https://www.tiktok.com/@natusclean/video/${id}?refer=embed`}>@natusclean</a>
-                  </section>
-                </blockquote>
-              </div>
-            ))}
+          <div className="flex justify-center w-full">
+            <blockquote 
+              className="tiktok-embed" 
+              cite="https://www.tiktok.com/@natusclean" 
+              data-unique-id="natusclean" 
+              data-embed-type="creator" 
+              style={{ maxWidth: '780px', minWidth: '288px', width: '100%' }}
+            >
+              <section>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@natusclean?refer=creator_embed">@natusclean</a>
+              </section>
+            </blockquote>
           </div>
           
           <div className="mt-12 text-center">
